@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+    font-family: 'Barlow Font';
+    src: url('./assets/font/Barlow-Font.ttf') format('ttf'),
+}   
