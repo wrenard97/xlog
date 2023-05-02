@@ -1,32 +1,68 @@
+import { useForm } from "react-hook-form";
 import Logo from "../assets/logo/Logo.png";
+import Inputprops from "./../components/inputProps";
+
+interface LoginForm {
+  username: string;
+  password: string;
+  rememberMe: boolean;
+}
 
 function adminLogin() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<LoginForm>();
+
+  const onSubmit = (data: LoginForm) => {
+    console.log(data);
+  };
+
   return (
-    <div className="bg-xlogbg bg-center bg-no-repeat bg-object-cover h-screen w-screen px-4.375 pt-5.938 pb-4.688 ">
-      <div className="flex justify-center items-center h-full bg-white">
-        <div className="flex flex-col border-2 border-gray-500 text-center justify-center items-center font-barlow text-3xl px-12 pt-4 pb-12">
-          <img src={Logo} alt="logo" className="w-[169px] h-[189px]" />
-          <div className="flex flex-col gap-8 pb-4">
-            <h1 className="">XLOG</h1>
-            <h2 className="">ADMIN ACCOUNT</h2>
+    <div className="bg-xlogbg bg-no-repeat bg-cover h-screen px-[2rem] py-[3rem] ">
+      <div className="flex justify-center items-center h-full bg-white py-[2rem]">
+        <div className="flex flex-col border-[1.5px] border-[#707070] text-center items-center font-barlow w-80 h-[] py-4 ">
+          <img src={Logo} alt="logo" className="w-[6rem] h-[6.75rem]" />
+          <div className="flex flex-col">
+            <h1 className=" flex flex-row justify-center text-[#fc8e03]">
+              X <span className="text-[#0095d8]">LOG</span>
+            </h1>
+            <h2 className="pb-4 text-[#0095d8]">ADMIN ACCOUNT</h2>
           </div>
-          <div className="flex flex-col gap-4 w-96 text-sm">
-            <input
-              className="h-14 border-2 border-gray-400 p-2"
-              placeholder="Username*"
-            ></input>
-            <input
-              className="h-14 border-2 border-gray-400 p-2"
-              placeholder="Password*"
-            ></input>
-            <div className="flex items-center text-sm pb-10">
-              <input type="checkbox" />
-              <span>Remember Me?</span>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div className="flex flex-col gap-4 w-72 text-[0.5rem] items-center pb-2">
+              <Inputprops
+                type="text"
+                placeholder="Username*"
+                {...register("username", { required: true })}
+              />
+              {errors.username && (
+                <span className="text-red-500">This field is required*</span>
+              )}
+              <Inputprops
+                type="password"
+                placeholder="Password*"
+                {...register("password", { required: true })}
+              />
+              {errors.password && (
+                <span className="text-red-500">This field is required*</span>
+              )}
             </div>
-          </div>
-          <button className="text-2xl text-white  bg-orange-500 rounded-lg w-36 h-14">
-            Login
-          </button>
+            <div className="flex flex-row items-center text-[0.5rem] pb-6 gap-2 px-6">
+              <input
+                type="checkbox"
+                {...register("rememberMe")}
+                className="border border-gray-400 rounded-sm h-4 w-4"
+              />
+              <span className="text-left">Remember Me?</span>
+            </div>
+            <div className="">
+              <button className=" text-white  bg-orange-500 rounded-lg py-2 px-8">
+                Login
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </div>

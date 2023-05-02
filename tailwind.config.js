@@ -5,12 +5,7 @@ export default {
     extend: {
       backgroundImage: {
         xlogbg: "url('./assets/images/xlog_BG.png')",
-      },
-
-      padding: {
-        4.375: "4.375rem",
-        5.938: "5.938rem",
-        4.688: "4.688rem",
+        bgxlog: "url('./assets/images/xlogbg-2.png')",
       },
 
       fontFamily: {

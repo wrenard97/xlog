@@ -1,9 +1,9 @@
-import AdminLogin from "./page/AdminLogin";
+import Adminlogin from "./page/adminLogin";
 
 export default function App() {
   return (
     <div>
-      <AdminLogin />
+      <Adminlogin />
     </div>
   );
 }
