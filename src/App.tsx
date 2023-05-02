@@ -1,4 +1,4 @@
-import Adminlogin from "./page/adminLogin";
+import Adminlogin from "./pages/adminLogin";
 
 export default function App() {
   return (

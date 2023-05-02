@@ -1,11 +1,11 @@
 import React from "react";
 
-type InputProps = {
+type inputProps = {
   placeholder: string;
   type: string;
 };
 
-const InputProps: React.FC<InputProps> = ({ placeholder, type }) => {
+const inputProps: React.FC<inputProps> = ({ placeholder, type }) => {
   return (
     <input
       className="h-[2rem] w-[15rem] border-[1.5px] border-[#707070] p-2"
@@ -15,4 +15,4 @@ const InputProps: React.FC<InputProps> = ({ placeholder, type }) => {
   );
 };
 
-export default InputProps;
+export default inputProps;
