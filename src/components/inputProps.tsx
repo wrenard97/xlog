@@ -5,14 +5,17 @@ type inputProps = {
   type: string;
 };
 
-const inputProps: React.FC<inputProps> = ({ placeholder, type }) => {
-  return (
-    <input
-      className="h-[2rem] w-[15rem] border-[1.5px] border-[#707070] p-2"
-      type={type}
-      placeholder={placeholder}
-    />
-  );
-};
+const InputProps = React.forwardRef<HTMLInputElement, inputProps>(
+  ({ placeholder, type }, ref) => {
+    return (
+      <input
+        className="h-[2rem] w-[15rem] border-[1.5px] border-[#707070] p-2"
+        type={type}
+        placeholder={placeholder}
+        ref={ref}
+      />
+    );
+  }
+);
 
-export default inputProps;
+export default InputProps;

@@ -22,7 +22,7 @@ function adminLogin() {
   return (
     <div className="bg-xlogbg bg-no-repeat bg-cover h-screen px-[2rem] py-[3rem] ">
       <div className="flex justify-center items-center h-full bg-white py-[2rem]">
-        <div className="flex flex-col border-[1.5px] border-[#707070] text-center items-center font-barlow w-80 h-[] py-4 ">
+        <div className="flex flex-col border-[1.5px] border-[#707070] text-center items-center w-80 h-[] py-4 ">
           <img src={Logo} alt="logo" className="w-[6rem] h-[6.75rem]" />
           <div className="flex flex-col">
             <h1 className=" flex flex-row justify-center text-[#fc8e03]">
