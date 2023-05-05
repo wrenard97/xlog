@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import Logo from "../assets/logo/Logo.png";
-import Inputprops from "./../components/inputProps";
+import InputProps from "../components/InputProps";
 
 interface LoginForm {
   username: string;
@@ -8,7 +8,7 @@ interface LoginForm {
   rememberMe: boolean;
 }
 
-function adminLogin() {
+function AdminLogin() {
   const {
     register,
     handleSubmit,
@@ -32,22 +32,23 @@ function adminLogin() {
           </div>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="flex flex-col gap-4 w-72 text-[0.5rem] items-center pb-2">
-              <Inputprops
+              <InputProps
                 type="text"
                 placeholder="Username*"
-                {...register("username", { required: true })}
+                register={register("username", {
+                  required: "Username is required*",
+                })}
+                error={errors.username}
               />
-              {errors.username && (
-                <span className="text-red-500">This field is required*</span>
-              )}
-              <Inputprops
+
+              <InputProps
                 type="password"
                 placeholder="Password*"
-                {...register("password", { required: true })}
+                register={register("password", {
+                  required: "Password is required*",
+                })}
+                error={errors.password}
               />
-              {errors.password && (
-                <span className="text-red-500">This field is required*</span>
-              )}
             </div>
             <div className="flex flex-row items-center text-[0.5rem] pb-6 gap-2 px-6">
               <input
@@ -69,4 +70,4 @@ function adminLogin() {
   );
 }
 
-export default adminLogin;
+export default AdminLogin;
